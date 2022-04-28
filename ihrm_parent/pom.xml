@@ -18,18 +18,12 @@
         <module>ihrm_attendance</module>
         <module>ihrm_salarys</module>
         <module>ihrm_audit</module>
+        <module>ihrm_employee</module>
     </modules>
 
     <packaging>pom</packaging>
     <name>ihrm_parent</name>
     <description>IHRM 人力资源管理系统</description>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
-        <relativePath/>
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,6 +45,7 @@
         <poi-ooxml-schemas.version>4.1.2</poi-ooxml-schemas.version>
         <poi-ooxml.version>5.2.2</poi-ooxml.version>
         <spring-cloud-dependencies.version>Finchley.SR1</spring-cloud-dependencies.version>
+        <spring-boot-dependencies.version>2.0.5.RELEASE</spring-boot-dependencies.version>
         <javase.version>3.4.1</javase.version>
         <java-sdk.version>4.16.7</java-sdk.version>
         <springfox-swagger-ui.version>3.0.0</springfox-swagger-ui.version>
@@ -76,6 +71,15 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -83,20 +87,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-logging</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring-boot-starter-test.version}</version>
-                <scope>${spring-boot-starter-test.scope}</scope>
-            </dependency>
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
@@ -228,6 +219,7 @@
         </dependencies>
     </dependencyManagement>
 
+    <!--
     <repositories>
         <repository>
             <id>spring-snapshots</id>
@@ -265,6 +257,7 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+    -->
     <build>
         <plugins>
             <!--编译插件-->
